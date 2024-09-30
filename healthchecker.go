@@ -55,7 +55,8 @@ func main() {
 
     sendQueue := goconcurrentqueue.NewFIFO()
     resultsQueue := goconcurrentqueue.NewFIFO()
-    
+
+    fmt.Println("Running")
     go runChecks(sendQueue, resultsQueue)
     queueChecks(sendQueue, checks, interval)
     go handleResults(resultsQueue, domainStats, len(checks))
